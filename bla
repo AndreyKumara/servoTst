@@ -1,0 +1,75 @@
+Once you play around with all the IDE's available for python on Raspberry Pi you tend to want to play with PyCharm since well its probably what you have installed on your desktop or laptop.  Good news get it up and running on the pi in no time.   This is one of my favorite ones but tend to use MU IDE on smaller projects.
+
+ 
+
+Go to https://www.jetbrains.com/pycharm/download/
+
+download the linux community version
+
+in the downloads folder on your pi extract the files by right clicking on it and choosing extract here
+
+open terminal  press ctrl+alt+t
+
+Type: cd Downloads    then press enter
+
+Type: ls       then press enter
+
+you should see pycharm-community-2019.2.2
+
+or something similar to that.
+
+
+Type: sudo mv pycharm-community-2019.2.2 /opt/pycharm-community-2019.2.2    then press enter
+
+Type: cd  then press enter
+
+Type: cd /opt/pycharm-community-2019.2.2/bin   then press enter
+
+Type: ./pycharm.sh then press enter
+
+ 
+
+*if for some reason you are getting a Java error on the command run this sudo apt-get install openjdk-11-jdk
+
+ 
+
+Then run the setup,  defaults usually work but read through and adjust to your liking
+
+ 
+
+once welcome to pycharm shows up in the bottom you will see a configure cog click on that then select create desktop entry.
+
+Select for all users you will have to enter your pi password for this part you will be prompted.
+
+
+Create new project and then set your name for it and run.
+
+It might take a few minutes for the program to load for the first time.
+
+You will see the status in the bottom of the program running.
+
+If you don’t have an icon on your desktop it is probably in the programming section in the raspberry icon then you can right click and add it to your desktop if you choose.
+
+ 
+
+Fix For Terminal not working.
+
+A big thank you to https://github.com/tuomastik  for the terminal fix you can use the code below or check it out on github.
+
+https://github.com/jetbrains/pty4j/issues/82
+
+ 
+
+open terminal (Ctrl+Alt+T on the keyboard)
+
+git clone https://github.com/JetBrains/pty4j.git cd pty4j/native
+
+gcc -fPIC -c *.c
+
+gcc -shared -o libpty.so *.o
+
+cp libpty.so /opt/pycharm/lib/pty4j-native/linux/x86/
+
+ 
+
+That’s it start playing with python!
